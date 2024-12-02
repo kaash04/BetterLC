@@ -1,0 +1,59 @@
+.floating-button {
+  position: fixed;
+  top: 20vh;
+  right: 25px;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background-color: rgba(40, 40, 40, 0.8);
+  box-shadow: 0 0 5px #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+.button-image {
+  width: 95%;
+  height: 95%;
+  object-fit: cover;
+  border-radius: 50%;
+  padding: 5%;
+}
+.tooltip {
+  position: absolute;
+  right: 70px;
+  top: 0;
+  padding: 10px;
+  background-color: rgba(51, 51, 51, 0.8);
+  color: #fff;
+  border-radius: 3px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s 0.3s;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 5px;
+  max-height: 40vh;
+  width: max-content;
+  max-width: 90vw;
+  box-sizing: border-box;
+  transform: translateX(10px);
+}
+.floating-button:hover .tooltip {
+  transform: translateX(0);
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s 0s;
+}
+.company {
+  padding: 5px 8px;
+  font-size: 13px;
+  color: #fff;
+  background-color: rgba(40, 40, 40, 0.2);
+  border-radius: 3px;
+  border: 1px solid #ffffff33;
+  text-align: center;
+  white-space: nowrap;
+}

@@ -1,0 +1,35 @@
+{
+  "manifest_version": 3,
+  "name": "BetterLC - TEST",
+  "version": "1.0",
+  "description": "Chrome extension to unlock leetcode company tags.",
+  "host_permissions": [
+    "https://leetcode.com/problems/*"
+  ],
+  "icons": {
+    "16": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "icon.png",
+    "default_title": "BetterLC - Unlock leetcode company tags"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://leetcode.com/problems/*"],
+      "js": ["./scripts/index.js"],
+      "css": ["./scripts/index.css"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["icon.png", "data.json"],
+      "matches": ["https://leetcode.com/*"]
+    }
+  ],
+  "content_security_policy": {
+    "extension_pages": "default-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com"
+  }
+}

@@ -1,0 +1,31 @@
+* {
+  box-sizing: border-box;
+  font-family: "Reddit Sans", serif;
+  font-size: 1rem;
+  color: #ffffffe6;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #282828e6;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+}
+
+button {
+  padding: 5px 15px;
+  background-color: transparent;
+  border: 1px solid #ffffffe6;
+  border-radius: 3px;
+  margin: 6px 8px;
+  transition: all 300ms ease;
+}
+
+button:hover {
+  background-color: #ffffffe6;
+  color: #1a1a1ae6;
+}
