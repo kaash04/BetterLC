@@ -1,7 +1,7 @@
 const button = document.createElement("div");
 button.className = "floating-button";
 const img = document.createElement("img");
-(img.src = chrome.runtime.getURL("icon.png")), (img.className = "button-image");
+(img.src = chrome.runtime.getURL("resources/icon.png")), (img.className = "button-image");
 const tooltip = document.createElement("div");
 (tooltip.className = "tooltip"),
   button.appendChild(img),
@@ -9,7 +9,7 @@ const tooltip = document.createElement("div");
   document.body.appendChild(button);
 const currentUrl = window.location.href,
   baseUrl = currentUrl.match(/https:\/\/leetcode\.com\/problems\/[^\/]+\//)[0];
-fetch(chrome.runtime.getURL("data.json"))
+fetch(chrome.runtime.getURL("resources/data.json"))
   .then((t) => t.json())
   .then((t) => {
     const e = t.find((t) => t.url === baseUrl),

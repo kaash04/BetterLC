@@ -7,13 +7,13 @@
     "https://leetcode.com/problems/*"
   ],
   "icons": {
-    "16": "icon.png",
-    "48": "icon.png",
-    "128": "icon.png"
+    "16": "./resources/icon.png",
+    "48": "./resources/icon.png",
+    "128": "./resources/icon.png"
   },
   "action": {
     "default_popup": "popup.html",
-    "default_icon": "icon.png",
+    "default_icon": "./resources/icon.png",
     "default_title": "BetterLC - Unlock leetcode company tags"
   },
   "content_scripts": [
@@ -25,7 +25,7 @@
   ],
   "web_accessible_resources": [
     {
-      "resources": ["icon.png", "data.json"],
+      "resources": ["resources/icon.png", "resources/data.json"],
       "matches": ["https://leetcode.com/*"]
     }
   ],
