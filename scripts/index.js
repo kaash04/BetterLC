@@ -19,13 +19,33 @@ fetch(chrome.runtime.getURL("resources/data.json"))
       (e.className = "company"), (e.textContent = t), tooltip.appendChild(e);
     });
     
-    // Check for truncated company names after rendering
+    // Add expansion overlay for all company names
     setTimeout(() => {
+      const expansionOverlay = document.createElement('div');
+      expansionOverlay.className = 'company-expansion-overlay';
+      document.body.appendChild(expansionOverlay);
+      
       document.querySelectorAll('.company').forEach(company => {
-        if (company.scrollWidth > company.clientWidth) {
-          company.setAttribute('data-truncated', 'true');
-          company.setAttribute('data-full-text', company.textContent);
-        }
+        company.setAttribute('data-full-text', company.textContent);
+        
+        // Add hover event listeners to all companies
+        company.addEventListener('mouseenter', (e) => {
+          const rect = company.getBoundingClientRect();
+          expansionOverlay.textContent = company.getAttribute('data-full-text');
+          expansionOverlay.style.display = 'block';
+          
+          // Calculate center position after overlay is displayed
+          const overlayRect = expansionOverlay.getBoundingClientRect();
+          const centerX = rect.left + (rect.width / 2) - (overlayRect.width / 2);
+          const centerY = rect.top + (rect.height / 2) - (overlayRect.height / 2);
+          
+          expansionOverlay.style.left = centerX + 'px';
+          expansionOverlay.style.top = centerY + 'px';
+        });
+        
+        company.addEventListener('mouseleave', () => {
+          expansionOverlay.style.display = 'none';
+        });
       });
     }, 100);
   })

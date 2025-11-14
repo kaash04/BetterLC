@@ -64,12 +64,8 @@
   cursor: default;
 }
 
-.company[data-truncated="true"]:hover::after {
-  content: attr(data-full-text);
+.company-expansion-overlay {
   position: fixed;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
   background-color: rgba(40, 40, 40, 0.98);
   color: #fff;
   padding: 8px 12px;
@@ -80,4 +76,6 @@
   font-size: 13px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
   pointer-events: none;
+  min-width: 164px;
+  text-align: center;
 }
