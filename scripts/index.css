@@ -31,15 +31,16 @@
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s 0.3s;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, max-content));
+  grid-auto-rows: max-content;
   gap: 5px;
-  max-height: 40vh;
-  width: max-content;
-  max-width: 90vw;
+  max-height: 60vh;
+  max-width: 50vw;
   box-sizing: border-box;
   transform: translateX(10px);
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 .floating-button:hover .tooltip {
   transform: translateX(0);
@@ -56,4 +57,25 @@
   border: 1px solid #ffffff33;
   text-align: center;
   white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 180px;
+  position: relative;
+  cursor: default;
+}
+
+.company-expansion-overlay {
+  position: fixed;
+  background-color: rgba(40, 40, 40, 0.98);
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 3px;
+  border: 1px solid #ffffff55;
+  white-space: nowrap;
+  z-index: 10000;
+  font-size: 13px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+  min-width: 164px;
+  text-align: center;
 }
