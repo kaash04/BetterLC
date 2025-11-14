@@ -57,4 +57,27 @@
   border: 1px solid #ffffff33;
   text-align: center;
   white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 180px;
+  position: relative;
+  cursor: default;
+}
+
+.company[data-truncated="true"]:hover::after {
+  content: attr(data-full-text);
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(40, 40, 40, 0.98);
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 3px;
+  border: 1px solid #ffffff55;
+  white-space: nowrap;
+  z-index: 10000;
+  font-size: 13px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  pointer-events: none;
 }

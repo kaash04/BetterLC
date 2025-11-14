@@ -18,5 +18,15 @@ fetch(chrome.runtime.getURL("resources/data.json"))
       const e = document.createElement("div");
       (e.className = "company"), (e.textContent = t), tooltip.appendChild(e);
     });
+    
+    // Check for truncated company names after rendering
+    setTimeout(() => {
+      document.querySelectorAll('.company').forEach(company => {
+        if (company.scrollWidth > company.clientWidth) {
+          company.setAttribute('data-truncated', 'true');
+          company.setAttribute('data-full-text', company.textContent);
+        }
+      });
+    }, 100);
   })
   .catch((t) => console.error("Error fetching JSON:", t));
